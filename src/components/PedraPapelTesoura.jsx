@@ -12,7 +12,7 @@ function PedraPapelTesoura() {
         return opcoes[indice];
     }
 
-    function jogar() {
+    function jogar(jogador) {
         const computador = jogadaComputador();
         setJogadaComputadorAtual(computador);
         verificarVencedor(jogadaJogador, computador);
@@ -21,16 +21,24 @@ function PedraPapelTesoura() {
     function verificarVencedor(jogador, computador) {
         if (jogador === computador) {
             setResultado('Empate');
+        } else if ((jogador === 'Pedra' && computador === 'Tesoura') ||
+                   (jogador === 'Papel' && computador === 'Pedra') ||
+                   (jogador === 'Tesoura' && computador === 'Papel')){
+            setResultado('Você venceu!');
+        } else {
+            setResultado('Computador venceu!');
         }
+                   }
     return (
         <div>
             <h1>Pedra, Papel ou Tesoura</h1>
             <button onClick={jogadaComputador}>Jogar</button>
-            <button onClick={() => { setJogadaJogador('Pedra'); jogar(); }}>Pedra</button>
-            <button onClick={() => { setJogadaJogador('Papel'); jogar(); }}>Papel</button>
-            <button onClick={() => { setJogadaJogador('Tesoura'); jogar(); }}>Tesoura</button>
+            <button onClick={() => { setJogadaJogador('Pedra'); jogar('Pedra'); }}>Pedra</button>
+            <button onClick={() => { setJogadaJogador('Papel'); jogar('Papel'); }}>Papel</button>
+            <button onClick={() => { setJogadaJogador('Tesoura'); jogar('Tesoura'); }}>Tesoura</button>
             <p>Sua jogada: {jogadaJogador}</p>
             <p>Jogada do computador: {jogadaComputadorAtual}</p>
+            <p>Resultado: {resultado}</p>
         </div>
     );
 }
