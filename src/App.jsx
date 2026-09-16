@@ -7,7 +7,7 @@ import Adivinhação from './components/adivinhacao'
 
 function App() {
     return (
-    <adivinhação />
+    <Adivinhação />
   );
 }
   
