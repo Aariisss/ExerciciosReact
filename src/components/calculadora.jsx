@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
 function Calculadora() {
-    const [valor1, setValor1] = useState(0);
-    const [valor2, setValor2] = useState(0);
+    const [valor1, setValor1] = useState("");
+    const [valor2, setValor2] = useState("");
+
+    const [resultado, setResultado] = useState(null);
 
     function calcular () {
         const numero1 = Number(valor1);
@@ -11,6 +13,13 @@ function Calculadora() {
         const subtracao = numero1 - numero2;
         const multiplicacao = numero1 * numero2;
         const divisao = numero1 / numero2;
+
+        setResultado({
+            soma: soma,
+            subtracao: subtracao,
+            multiplicacao: multiplicacao,
+            divisao: divisao
+        });
     }
 
   return (
@@ -21,6 +30,14 @@ function Calculadora() {
       <input type="number" value={valor2} onChange={(evento) => setValor2(evento(e.target.value))} />
 
       <button onClick={calcular}>Calcular</button>
+      {resultado && (
+        <div>
+          <p>Soma: {resultado.soma}</p>
+          <p>Subtração: {resultado.subtracao}</p>
+          <p>Multiplicação: {resultado.multiplicacao}</p>
+          <p>Divisão: {resultado.divisao}</p>
+        </div>
+      )}
 
     </div>
   );
