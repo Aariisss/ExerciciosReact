@@ -26,8 +26,8 @@ function Calculadora() {
     <div>
       <h1>Caixa de Mercado</h1>
 
-      <input type="number" value={valor1} onChange={(evento) => setValor1(evento(e.target.value))} />
-      <input type="number" value={valor2} onChange={(evento) => setValor2(evento(e.target.value))} />
+      <input type="number" value={valor1} onChange={(evento) => setValor1(evento.target.value)} />
+      <input type="number" value={valor2} onChange={(evento) => setValor2(evento.target.value)} />
 
       <button onClick={calcular}>Calcular</button>
       {resultado && (
