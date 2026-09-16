@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Resultado from './resultado';
 
 function Calculadora() {
     const [valor1, setValor1] = useState("");
@@ -31,12 +32,7 @@ function Calculadora() {
 
       <button onClick={calcular}>Calcular</button>
       {resultado && (
-        <div>
-          <p>Soma: {resultado.soma}</p>
-          <p>Subtração: {resultado.subtracao}</p>
-          <p>Multiplicação: {resultado.multiplicacao}</p>
-          <p>Divisão: {resultado.divisao}</p>
-        </div>
+        <Resultado resultado={resultado} />
       )}
 
     </div>
