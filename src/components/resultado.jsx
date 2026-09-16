@@ -9,3 +9,5 @@ function Resultado({resultado}) {
         </div>
     );
 }
+
+export default Resultado;
